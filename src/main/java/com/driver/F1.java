@@ -12,7 +12,7 @@ public class F1 extends Car {
 
 
 
-        int newSpeed = rate + getCurrentSpeed();//set the value of new speed by using currentSpeed and rate
+        int newSpeed = 0;//set the value of new speed by using currentSpeed and rate
 
 
 
