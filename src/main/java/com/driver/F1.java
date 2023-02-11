@@ -12,7 +12,7 @@ public class F1 extends Car {
 
 
 
-        int newSpeed = rate + this.getCurrentSpeed();//set the value of new speed by using currentSpeed and rate
+        int newSpeed = rate + getCurrentSpeed();//set the value of new speed by using currentSpeed and rate
 
 
 
@@ -29,7 +29,7 @@ public class F1 extends Car {
         if(newSpeed == 0) {
             this.stop();
             this.changeGear(1);
-            this.setCurrentSpeed(newSpeed);
+
 
             //Stop the car, set gear as 1
         }
