@@ -79,10 +79,7 @@ public class Car extends Vehicle {
         //Hint: Car extends Vehicle
     }
 
-    public Car(String name,boolean isManual) {
-        super(name);
 
-    }
 
 
     public void changeGear(int newGear){
