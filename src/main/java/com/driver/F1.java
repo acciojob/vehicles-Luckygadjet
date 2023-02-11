@@ -1,14 +1,21 @@
 package com.driver;
+
 public class F1 extends Car {
 
-    public F1(String name, boolean isManual) {
-        //Use arbitrary values for parameters which are not mentioned
-        super(name, 4, 2, 6, isManual, "Racing Car", 2);
 
+    public F1(String name, boolean isManual) {
+        super(name,2,4,6,false,"Sports",6);
+        //Use arbitrary values for parameters which are not mentioned
     }
 
-    public void accelerate(int rate) {
-        int newSpeed = 0; //set the value of new speed by using currentSpeed and rate
+    public void accelerate(int rate){
+
+
+
+        int newSpeed = getCurrentSpeed()+rate;//set the value of new speed by using currentSpeed and rate
+
+
+
         /**
          * speed 0: gear 1
          * speed 1-50: gear 1
@@ -19,36 +26,48 @@ public class F1 extends Car {
          * speed more than 250: gear 6
          */
 
-        if (newSpeed == 0) {
-            stop();
-            changeGear(1);
+        if(newSpeed == 0) {
+            this.stop();
+            this.changeGear(1);
+
 
             //Stop the car, set gear as 1
         }
-        //for all other cases, change the gear accordingly
-        else if (newSpeed >= 1 && newSpeed <= 50) {
-            changeGear(1);
-            changeSpeed(rate, getCurrentDirection());
+        else if(newSpeed >= 1 && newSpeed <= 50)
+        {
+            this.changeGear(1);
+            this.setCurrentSpeed(newSpeed);
 
-            if (newSpeed > 0) {
-                changeSpeed(newSpeed, getCurrentDirection());
-            } else if (newSpeed >= 51 && newSpeed <= 100) {
-                changeGear(2);
-                changeSpeed(rate, getCurrentDirection());
-            } else if (newSpeed >= 101 && newSpeed <= 150) {
-                changeGear(3);
-                changeSpeed(rate, getCurrentDirection());
-            } else if (newSpeed >= 151 && newSpeed <= 200) {
-                changeGear(4);
-                changeSpeed(rate, getCurrentDirection());
-            } else if (newSpeed >= 151 && newSpeed <= 250) {
-                changeGear(5);
-                changeSpeed(rate, getCurrentDirection());
-            } else if (newSpeed > 250) {
-                changeGear(6);
-                changeSpeed(rate, getCurrentDirection());
-            }
-            //for all other cases, change the gear accordingly
+        }
+        else if(newSpeed >= 51 && newSpeed <= 100)
+        {
+            this.changeGear(2);
+            this.setCurrentSpeed(newSpeed);
+        }
+        else if(newSpeed >= 101 && newSpeed <= 150)
+        {
+            this.changeGear(3);
+            this.setCurrentSpeed(newSpeed);
+        }
+        else if(newSpeed >= 151 && newSpeed <= 200)
+        {
+            this.changeGear(4);
+            this.setCurrentSpeed(newSpeed);
+        }
+        else if(newSpeed >= 201 && newSpeed <= 250)
+        {
+            this.changeGear(5);
+            this.setCurrentSpeed(newSpeed);
+        }
+        else if(newSpeed > 250)
+        {
+            this.changeGear(6);
+            this.setCurrentSpeed(newSpeed);
+        }
+        //for all other cases, change the gear accordingly
+
+        if(newSpeed > 0) {
+            changeSpeed(newSpeed, this.getCurrentDirection());
         }
     }
 }
